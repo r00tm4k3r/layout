@@ -1,0 +1,32 @@
+font
+{
+    color: #1000f7;
+}
+
+li
+{
+    text-decoration: none;
+    list-style-type: none;
+}
+ul
+{
+    display: none;
+    text-decoration: none;
+    list-style-type: none;
+}
+li:hover ul
+{
+    display: block;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+img
+{
+    border-radius: 50%;
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: cover;
+    border: 1px solid #1000f7;
+    margin-right: 10px;
+}

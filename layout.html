@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ru" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Styles-->
+    <link rel="stylesheet" href="exr.bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <style>
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+
+    <title>layout</title>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+
+        <div class="container-fluid p-0">
+
+            <!-- NavBar Header -->
+            <nav class="navbar navbar-light navbar-expand bg-gray-100 shadow topbar sticky-top">
+                <div class="container-fluid">
+                    <div class="d-flex flex-row">
+                        <button class="btn btn-link rounded-circle my-auto" id="sidebarToggle" type="button"
+                            v-on:click="sidebarToggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <a class="d-flex flex-row ml-2 my-auto text-bold nav-link p-1" href="/">
+                            <div class="my-auto">
+                                <img width="50rem" src="https://www.exr.ru/public/images/logo-grey.png" alt="">
+                            </div>
+                            <div class="mx-1 my-auto text-gray-800 nowrap" style="font-weight: bold;font-size: 1rem">
+                                <span>EXR app</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <button type="button" class="btn btn-primary small btn-rounded nowrap d-inline-block"
+                        onclick="location.href='/'">
+                        <i class="fas fa-sign-in-alt pr-1 p-0"></i>
+                        <span class="d-none d-sm-inline-block">Войти</span>
+                    </button>
+                </div>
+            </nav>
+            <!--End NavBar Header-->
+
+            <!--Main Content-->
+            <div class="d-flex" v-scroll="scrollToTop_Scroll">
+                <!--Sidebar Main Nav-->
+                <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 pt-2 sticky-top"
+                    id="SidebarMain"
+                    style="z-index: 9999;top: 4.375rem;height: calc(100vh - 4.375rem);min-height: auto">
+                    <div class="container-fluid d-flex flex-column p-0">
+                        <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="/">
+                                    <i class="far fa-user-circle"></i>
+                                    <span>Авторизация</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--End Sidebar Main Nav-->
+
+                <div class="align-content-end pt-4" style="width:100%">
+                    <!--div Main-->
+                    <div id="content">
+                        <!-- Ваш код должен находится здесь -->
+
+                        <div class="container-fluid">
+                            <div class="row mb-3">
+                                <div class="container-fluid col-12 mb-4">
+                                    <div class="card shadow rounded animated--fade-in-in">
+                                        <img class="card-img bg-dark rounded-top" src=""
+                                            style="width: 100%; max-height: 20rem;border-radius:0;object-fit:fill"
+                                            alt="Card image header">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-start align-content-center">
+                                                <img class="rounded-circle bg-dark" src=""
+                                                    style="width:5vw;height:5vw;object-fit:cover" alt="Профиль">
+                                                <div class="my-auto ml-3">
+                                                    <h4 class="text-primary">Adventures</h4>
+                                                    <p class="small">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
+                                                        unde?
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer d-md-flex justify-content-md-end">
+                                            <a class="card-link ml-4" href="javascript:;" onclick="">
+                                                <i class="fas fa-chart-bar"></i>
+                                                Статистика
+                                            </a>
+                                            <a class="card-link ml-4" href="javascript:;" onclick="">
+                                                <i class="fas fa-cogs fa-sm fa-fw"></i>
+                                                Настройки
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex flex-md-row-reverse">
+                                <div class="container-fluid col-md-4 col-12 ml-0 mb-3">
+                                    <div class="card rounded shadow animated--fade-in">
+                                        <div class="card-body d-flex flex-column">
+                                            <a class="card-link my-1 ml-0" href="#">
+                                                <i class="far fa-comment mr-2"></i>
+                                                Оставить отзыв
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="card-link my-1 ml-0 text-dark" href="#">
+                                                <i class="far fa-bell mr-2"></i>
+                                                Включить уведомления
+                                            </a>
+                                            <a class="card-link my-1 ml-0 text-dark" href="#">
+                                                <i class="far fa-share-square mr-2"></i>
+                                                Поделится
+                                            </a>
+                                            <a class="card-link my-1 ml-0 text-dark" href="#">
+                                                <i class="fas fa-ellipsis-h mr-2"></i>
+                                                Ещё
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container-fluid col-md-8 col-12">
+                                    <ul class="card mb-4 nav nav-pills d-md-flex flex-md-row flex-column shadow animated--fade-in"
+                                        id="nav-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-news-tab" data-toggle="pill"
+                                                href="#pills-news" role="tab" aria-controls="pills-news"
+                                                aria-selected="true">
+                                                <i class="far fa-newspaper"></i>
+                                                Новости
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-friends-tab" data-toggle="pill"
+                                                href="#pills-friends" role="tab" aria-controls="pills-friends"
+                                                aria-selected="false">
+                                                <i class="far fa-address-card"></i>
+                                                Друзья
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-subscribers-tab" data-toggle="pill"
+                                                href="#pills-subscribers" role="tab" aria-controls="pills-subscribers"
+                                                aria-selected="false">
+                                                <i class="far fa-address-card"></i>
+                                                Подписчики
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-about-tab" data-toggle="pill"
+                                                href="#pills-about" role="tab" aria-controls="pills-about"
+                                                aria-selected="false">
+                                                <i class="far fa-address-card"></i>
+                                                О нас
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-contacts-tab" data-toggle="pill"
+                                                href="#pills-contacts" role="tab" aria-controls="pills-contact"
+                                                aria-selected="false">
+                                                <i class="far fa-address-book"></i>
+                                                Контакты
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-news" role="tabpanel"
+                                            aria-labelledby="pills-news-tab">
+                                            Новости
+                                        </div>
+
+                                        <div class="tab-pane fade" id="pills-friends" role="tabpanel"
+                                            aria-labelledby="pills-friends-tab">
+                                            Здесь ваш компонент (друзья)
+                                        </div>
+
+                                        <div class="tab-pane fade" id="pills-subscribers" role="tabpanel"
+                                            aria-labelledby="pills-subscribers-tab">
+                                            <!-- -->
+                                            <subscribers-list></subscribers-list>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="pills-about" role="tabpanel"
+                                            aria-labelledby="pills-about-tab">
+                                            <div class="card shadow">
+                                                Тут все сказано
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="pills-contacts" role="tabpanel"
+                                            aria-labelledby="pills-contacts-tab">
+                                            <div class="card shadow">
+                                                Мы ценим ваше время.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- -->
+                    </div>
+                    <!--End div Main-->
+
+                    <!--Alerts Block-->
+                    <div class="container fixed-top align-content-center" style="width: 60vw; top: 10%; opacity: 75%"
+                        id="alerts-container">
+                    </div>
+                    <!--End Alerts Block-->
+
+                    <!--Footer-->
+                    <footer class="sticky-footer shadow mx-auto">
+                        <div class="container my-auto">
+                            <div class="text-center my-auto copyright">
+                                <span>ООО "Экспресс реклама" EXRapp</span>
+                            </div>
+                        </div>
+                    </footer>
+                    <!--End Footer-->
+
+                    <!--Button ScrollToTop-->
+                    <a class="border rounded d-inline scroll-to-top text-white d-none" v-if="showScrollToTop"
+                        v-on:click="scrollToTop_Click">
+                        <i class="fas fa-angle-up"></i>
+                    </a>
+                    <!--End Button ScrollToTop-->
+                </div>
+            </div>
+            <!--End Main Content-->
+        </div>
+
+    </div>
+
+    <!--Libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- Ваш шаблон для vue component -->
+    <script type="text/x-template" id="subscribers">
+        <div class="container px-0">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <input class="form-control mr-sm-2" type="text"
+                        placeholder="Поиск" v-model="search">
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="dropdown btn-group btn-block mb-2">
+                        <button
+                            class="btn btn-block btn-primary dropdown-toggle"
+                            type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Параметры
+                        </button>
+                        <form class="dropdown-menu row"
+                            aria-labelledby="dropdownMenuButton">
+                            <div class="form-group p-2">
+                                <label for="cities">Город</label>
+                                <select class="form-control select2"
+                                    name="cities" id="cities"
+                                    v-model="selectedCity">
+                                    <option class="option2" value="">Любой</option>
+                                    <option v-for="city in cities">
+                                        {{city}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group p-2">
+                                <label>Возраст</label>
+                                <input type="text"
+                                    class="form-control input-sm mb-1"
+                                    id="inputEmail4" name="min-age"
+                                    placeholder="От" v-model="minAge">
+                                <input type="text" class="form-control input-sm"
+                                    id="inputPassword4" name="max-age"
+                                    placeholder="До" v-model="maxAge"
+                                    @change="maxAgeChecker">
+                            </div>
+
+
+                            <div class="form-group p-2">
+                                <label>Пол</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                            type="radio" name="male"
+                                            id="gridRadios1" value="male"
+                                            v-model="selectedGender">
+                                        <label class="form-check-label"
+                                            for="male">
+                                            Мужчина
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                            type="radio" name="female"
+                                            id="gridRadios2" value="female"
+                                            v-model="selectedGender">
+                                        <label class="form-check-label"
+                                            for="female">
+                                            Женщина
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                            type="radio" name="any"
+                                            id="gridRadios3" value=""
+                                            v-model="selectedGender" selected>
+                                        <label class="form-check-label"
+                                            for="any">
+                                            Любой
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12">
+                                <div class="d-flex justify-content-center row">
+                                    <button class="btn btn-primary"
+                                        type="button" name=""
+                                        @click="disableFilter">Сбросить
+                                        настройки</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container card p-3">
+                    <div class="row d-flex align-items-center py-2"
+                        style="text-align: center;"
+                        v-for="subscriber of filtered">
+                        <div class="col-12 col-xl-4">
+                            <img :src="subscriber.ImagePath"
+                                class="img-thumbnail rounded-circle z-depth-2"
+                                style="height: 80px; width: 80px;" alt="img"
+                                data-holder-rendered="true">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <a :href="subscriber.ProfileLink"
+                                style="text-decoration: none; color:var(--dark); width: 70%;text-align: center;">
+                                {{subscriber.FirstName}} {{subscriber.LastName}}
+                            </a>
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <button class="btn btn-outline-success text-wrap" style="{font-size:= 0.7vw}"
+                                style="word-break: break-all;">Добавить в друзья</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="app.js"></script>
+    <!--End Libraries-->
+
+</body>
+
+</html>
