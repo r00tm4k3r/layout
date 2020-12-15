@@ -258,13 +258,13 @@
         <div class="container px-0">
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <input class="form-control mr-sm-2" type="text"
+                    <input class="form-control mr-sm-2 shadow" type="text"
                         placeholder="Поиск" v-model="search">
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="dropdown btn-group btn-block mb-2">
                         <button
-                            class="btn btn-block btn-primary dropdown-toggle"
+                            class="btn btn-block btn-primary dropdown-toggle shadow"
                             type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -345,26 +345,25 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="container card p-3">
+            <div class="container-fluid px-0 shadow">
+                <div class="row card mx-auto px-3">
                     <div class="row d-flex align-items-center py-2"
                         style="text-align: center;"
                         v-for="subscriber of filtered">
-                        <div class="col-12 col-xl-4">
+                        <div class="col-12 col-md-4">
                             <img :src="subscriber.ImagePath"
                                 class="img-thumbnail rounded-circle z-depth-2"
                                 style="height: 80px; width: 80px;" alt="img"
                                 data-holder-rendered="true">
                         </div>
-                        <div class="col-12 col-xl-4">
+                        <div class="col-12 col-md-4">
                             <a :href="subscriber.ProfileLink"
                                 style="text-decoration: none; color:var(--dark); width: 70%;text-align: center;">
                                 {{subscriber.FirstName}} {{subscriber.LastName}}
                             </a>
                         </div>
-                        <div class="col-12 col-xl-4">
-                            <button class="btn btn-outline-success text-wrap" style="{font-size:= 0.7vw}"
-                                style="word-break: break-all;">Добавить в друзья</button>
+                        <div class="col-12 col-md-4">
+                            <button class="btn btn-outline-success text-wrap" style="{font-size:= 0.7vw}">Добавить в друзья</button>
                         </div>
                     </div>
                 </div>
