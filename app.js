@@ -57,6 +57,7 @@ Vue.component('subscribers-list', {
                     LiveCity: 'New-York',
                     ProfileLink: "#"
                 }],
+
             cities: ['Москва', 'Санкт-Петербург', 'Казань', 'Люберцы', 'New-York'],
             search: '',
             selectedGender: '',
@@ -99,6 +100,9 @@ Vue.component('subscribers-list', {
 
                 return nameFilter && genderFilter && cityFilter && minAgeFilter && maxAgeFilter;
             });
+        },
+        subscribersCount() {
+            return subscribersList.length;
         }
     }
 });

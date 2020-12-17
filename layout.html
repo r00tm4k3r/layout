@@ -255,22 +255,18 @@
 
     <!-- Ваш шаблон для vue component -->
     <script type="text/x-template" id="subscribers">
-        <div class="container px-0">
-            <div class="row">
-                <div class="col-12 col-lg-8">
-                    <input class="form-control mr-sm-2 shadow" type="text"
-                        placeholder="Поиск" v-model="search">
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="dropdown btn-group btn-block mb-2">
-                        <button
-                            class="btn btn-block btn-primary dropdown-toggle shadow"
-                            type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Параметры
-                        </button>
-                        <form class="dropdown-menu row"
+        <div class="card container my-4">
+            <div class="input-group my-4">
+                <input class="form-control" type="text" placeholder="Поиск" v-model="search">
+                <div class="">
+                    <button
+                        class="btn btn-default btn-primary dropdown-toggle"
+                        type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Параметры
+                    </button>
+                    <form class="dropdown-menu row"
                             aria-labelledby="dropdownMenuButton">
                             <div class="form-group p-2">
                                 <label for="cities">Город</label>
@@ -342,30 +338,26 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
                 </div>
             </div>
-            <div class="container-fluid px-0 shadow">
-                <div class="row card mx-auto px-3">
-                    <div class="row d-flex align-items-center py-2"
-                        style="text-align: center;"
+            <p class="text-secondary mb-4">Колличество подписчиков:</p>
+            <div class="container mb-4">
+                    <div class="container-fluid row px-0 py-2 m-0 mt-2 align-items-center"
                         v-for="subscriber of filtered">
-                        <div class="col-12 col-md-4">
-                            <img :src="subscriber.ImagePath"
-                                class="img-thumbnail rounded-circle z-depth-2"
+                        <img :src="subscriber.ImagePath"
+                                class="img-thumbnail rounded-circle z-depth-2 mr-5"
                                 style="height: 80px; width: 80px;" alt="img"
                                 data-holder-rendered="true">
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <a :href="subscriber.ProfileLink"
-                                style="text-decoration: none; color:var(--dark); width: 70%;text-align: center;">
+                        <div class="row col-12 col-md-10">
+                            <a :href="subscriber.ProfileLink" class="text-secondary col-10">
                                 {{subscriber.FirstName}} {{subscriber.LastName}}
+                                <i class="fa fa-circle text-secondary col-12 col-md-2"></i>
+                            </a>
+                            <a href="#" class="text-primary col-12">
+                                <i class="fa fa-user-plus text-primary"></i> Добавить в друзья
                             </a>
                         </div>
-                        <div class="col-12 col-md-4">
-                            <button class="btn btn-outline-success text-wrap" style="{font-size:= 0.7vw}">Добавить в друзья</button>
-                        </div>
-                    </div>
+                        <button class="btn text-primary float-right fa fa-ellipsis-v"></button>
                 </div>
             </div>
         </div>
