@@ -10,7 +10,8 @@ Vue.component('subscribers-list', {
                     ImagePath: 'img/test.jpg',
                     Gender: 'male',
                     LiveCity: 'Казань',
-                    ProfileLink: "#"
+                    ProfileLink: "#",
+                    OnlineStatus: true
                 },
                 {
                     FirstName: 'Valera',
@@ -19,7 +20,8 @@ Vue.component('subscribers-list', {
                     ImagePath: 'img/test.jpg',
                     Gender: 'male',
                     LiveCity: 'Казань',
-                    ProfileLink: "#"
+                    ProfileLink: "#",
+                    OnlineStatus: true
                 },
                 {
                     FirstName: 'Tomas',
@@ -28,7 +30,8 @@ Vue.component('subscribers-list', {
                     ImagePath: 'img/test.jpg',
                     Gender: 'male',
                     LiveCity: 'Москва',
-                    ProfileLink: "#"
+                    ProfileLink: "#",
+                    OnlineStatus: false
                 },
                 {
                     FirstName: 'Tom',
@@ -37,7 +40,8 @@ Vue.component('subscribers-list', {
                     ImagePath: 'img/test.jpg',
                     Gender: 'male',
                     LiveCity: 'Люберцы',
-                    ProfileLink: "#"
+                    ProfileLink: "#",
+                    OnlineStatus: false
                 },
                 {
                     FirstName: 'Elisebet',
@@ -46,7 +50,8 @@ Vue.component('subscribers-list', {
                     ImagePath: 'img/test.jpg',
                     Gender: 'female',
                     LiveCity: 'Санкт-Петербург',
-                    ProfileLink: "#"
+                    ProfileLink: "#",
+                    OnlineStatus: false
                 },
                 {
                     FirstName: 'Layla',
@@ -55,7 +60,8 @@ Vue.component('subscribers-list', {
                     ImagePath: 'img/test.jpg',
                     Gender: 'female',
                     LiveCity: 'New-York',
-                    ProfileLink: "#"
+                    ProfileLink: "#",
+                    OnlineStatus: true
                 }],
 
             cities: ['Москва', 'Санкт-Петербург', 'Казань', 'Люберцы', 'New-York'],
@@ -100,9 +106,6 @@ Vue.component('subscribers-list', {
 
                 return nameFilter && genderFilter && cityFilter && minAgeFilter && maxAgeFilter;
             });
-        },
-        subscribersCount() {
-            return subscribersList.length;
         }
     }
 });
