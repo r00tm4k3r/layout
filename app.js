@@ -1,3 +1,156 @@
+Vue.component('user-info', {
+    template: '#user-info',
+    data: function () {
+        return {
+            user: {
+                FullName: "Erich Fromma",
+                OnlineStatus: true,
+                Country: "Германия",
+                LiveCity: "Франкфурт",
+                Birthday:'03-23-1900',
+                Hobbies: ['Философия', 'Неофрейдизм', 'Марксизм']
+            },
+            infoTopics: ['Страна', 'Город', 'День рождения', 'Увлечения']
+        }
+}});
+
+Vue.component('news', {
+    template: '#news',
+    data: function () {
+        return {
+            news: [
+                {
+                    GroupName: 'CDPR',
+                    ImagePath: 'img/cdpr.jpg',
+                    GroupLink: '#',
+                    DateOfPosting:(new Date - new Date('12.17.2020')),
+                    PostTitle: 'Cyberpunk 2077',
+                    PostPreview: 'img/cyberpunk2077.jpg'
+                },
+                {
+                    GroupName: 'CDPR',
+                    ImagePath: 'img/cdpr.jpg',
+                    GroupLink: '#',
+                    DateOfPosting:(new Date - new Date('12.17.2020')),
+                    PostTitle: 'Cyberpunk 2077',
+                    PostPreview: 'img/cyberpunk2077.jpg'
+                }
+            ]
+        }
+}});
+
+Vue.component('friends-list', {
+    template: '#friends',
+    data: function () {
+        return {
+            friendsList: [
+                {
+                    FirstName: 'Zmih',
+                    LastName: 'Sedoy',
+                    Age: 19,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'male',
+                    LiveCity: 'Казань',
+                    ProfileLink: "#",
+                    OnlineStatus: true
+                },
+                {
+                    FirstName: 'Valera',
+                    LastName: 'Znoyniy',
+                    Age: 19,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'male',
+                    LiveCity: 'Казань',
+                    ProfileLink: "#",
+                    OnlineStatus: true
+                },
+                {
+                    FirstName: 'Tomas',
+                    LastName: 'Edison',
+                    Age: 57,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'male',
+                    LiveCity: 'Москва',
+                    ProfileLink: "#",
+                    OnlineStatus: false
+                },
+                {
+                    FirstName: 'Tom',
+                    LastName: 'Hanson',
+                    Age: 28,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'male',
+                    LiveCity: 'Люберцы',
+                    ProfileLink: "#",
+                    OnlineStatus: false
+                },
+                {
+                    FirstName: 'Elisebet',
+                    LastName: 'Hardware',
+                    Age: 30,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'female',
+                    LiveCity: 'Санкт-Петербург',
+                    ProfileLink: "#",
+                    OnlineStatus: false
+                },
+                {
+                    FirstName: 'Layla',
+                    LastName: 'Harison',
+                    Age: 15,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'female',
+                    LiveCity: 'New-York',
+                    ProfileLink: "#",
+                    OnlineStatus: true
+                }],
+
+            cities: ['Москва', 'Санкт-Петербург', 'Казань', 'Люберцы', 'New-York'],
+            search: '',
+            selectedGender: '',
+            minAge: '',
+            maxAge: '',
+            selectedCity: ''
+        }
+    },
+    methods: {
+        disableFilter: function () {
+            this.search = '';
+            this.selectedGender = '';
+            this.minAge = '';
+            this.maxAge = '';
+            this.selectedCity = '';
+
+        },
+        maxAgeChecker() {
+            if (this.minAge != '' && parseInt(this.minAge) > parseInt(this.maxAge)) {
+                temp = this.minAge;
+                this.minAge = this.maxAge;
+                this.maxAge = temp;
+            }
+        },
+
+    },
+    computed: {
+        filtered() {
+            var self = this;
+
+            return this.friendsList.filter(function (friend) {
+
+                var nameFilter = friend.FirstName.toLowerCase().indexOf(self.search) > -1 ||
+                    friend.LastName.toLowerCase().indexOf(self.search) > -1;
+                var genderFilter = self.selectedGender == '' ? true : friend.Gender == self.selectedGender;
+                var cityFilter = self.selectedCity == '' ? true : friend.LiveCity == self.selectedCity;
+
+                var minAgeFilter = self.minAge == '' ? true : friend.Age >= self.minAge;
+                var maxAgeFilter = self.maxAge == '' ? true : friend.Age <= self.maxAge;
+
+                return nameFilter && genderFilter && cityFilter && minAgeFilter && maxAgeFilter;
+            });
+        }
+    }
+});
+
 Vue.component('subscribers-list', {
     template: '#subscribers',
     data: function () {
@@ -109,6 +262,47 @@ Vue.component('subscribers-list', {
         }
     }
 });
+
+Vue.component('bonuses-list', {
+    template: '#bonuses',
+    data: function () {
+        return {
+            bonusesList: [
+                {
+                    GroupName: 'CDPR',
+                    AliasName: 'CD Projekt Red',
+                    GroupLink: '#',
+                    ImagePath: 'img/cdpr.jpg',
+                    BonusCount: 125
+                },
+                {
+                    GroupName: 'CDPR',
+                    AliasName: 'Project Red',
+                    GroupLink: '#',
+                    ImagePath: 'img/cdpr.jpg',
+                    BonusCount: 1224
+                }
+            ],
+            search: ''
+        }
+    },
+    computed: {
+        filtered() {
+            var self = this;
+
+            return this.bonusesList.filter(function (bonus) {
+
+                return bonus.GroupName.toLowerCase().indexOf(self.search) > -1 ||
+                    bonus.AliasName.toLowerCase().indexOf(self.search) > -1;
+            });
+        }
+    }
+});
+
+
+
+
+
 
 $('.dropdown-menu').on('click', function (e) {
     e.stopPropagation();
