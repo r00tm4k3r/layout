@@ -54,8 +54,8 @@
             <!--Main Content-->
             <div class="d-flex" v-scroll="scrollToTop_Scroll">
                 <!--Sidebar Main Nav-->
-                <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 pt-2 sticky-top"
-                    id="SidebarMain"
+                <nav class="navbar align-items-start sidebar sidebar-dark accordion
+                bg-gradient-primary p-0 pt-2 sticky-top" id="SidebarMain"
                     style="z-index: 9999;top: 4.375rem;height: calc(100vh - 4.375rem);min-height: auto">
                     <div class="container-fluid d-flex flex-column p-0">
                         <ul class="nav navbar-nav text-light" id="accordionSidebar">
@@ -79,8 +79,8 @@
 
                         <div class="d-flex flex-md-row-reverse">
                             <div class="container-fluid col-md-8 col-12">
-                                <ul class="card mb-4 nav nav-pills d-md-flex flex-md-row flex-column shadow animated--fade-in"
-                                    id="nav-tab" role="tablist">
+                                <ul class="card mb-4 nav nav-pills d-md-flex flex-md-row flex-column
+                                shadow animated--fade-in" id="nav-tab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="pills-news-tab" data-toggle="pill"
                                             href="#pills-news" role="tab" aria-controls="pills-news"
@@ -495,19 +495,16 @@
 
             <div class="list-group border-0">
                 <div class="list-group-item rounded-0 border-left-0 border-right-0 d-flex
-                justify-content-between px-md-5" v-for="bonus of filtered">
-                    <div class="d-flex justify-content-between">
+                justify-content-between px-md-5 align-items-center" v-for="(bonus, index) of filtered">
+                    <div class="d-flex justify-content-between align-items-center">
                         <img :src="bonus.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
                                 style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
-                        <div class="d-flex flex-column justify-content-center">
-                            <a :href="bonus.GroupLink" class="text-secondary my-1">
-                                {{bonus.GroupName}}
-                            </a>
-                            <a href="#" class="text-primary my-1">
-                                <i class="fa fa-user-plus text-primary"></i> Добавить в друзья
-                            </a>
-                        </div>
+                        <a :href="bonus.GroupLink" class="text-secondary my-1">
+                            {{bonus.GroupName}}
+                        </a>
                     </div>
+                    <p class="text-primary"><i class="fa fa-badge-percent"></i> {{bonus.BonusCount}} бонус{{bonusCorrectEnd(index)}}</p>
+                    <button class="btn btn-default btn-primary">Посмотреть бонусы</button>
                     <button class="btn text-primary fa fa-ellipsis-v align-self-start"></button>
                 </div>
             </div>

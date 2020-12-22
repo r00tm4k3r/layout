@@ -286,6 +286,17 @@ Vue.component('bonuses-list', {
             search: ''
         }
     },
+    watch:{
+
+    },
+    methods: {
+        bonusCorrectEnd: function(index) {
+            end = '';
+            if(!(this.bonusesList[index].BonusCount % 10 == 1))
+                end = (this.bonusesList[index].BonusCount % 10 >= 2 && this.bonusesList[index].BonusCount % 10 <= 4) ? 'а': 'ов';
+            return end;
+        }
+    },
     computed: {
         filtered() {
             var self = this;
