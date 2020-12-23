@@ -9,10 +9,10 @@ Vue.component('user-info', {
                 LiveCity: "Франкфурт",
                 Birthday:'03-23-1900',
                 Hobbies: ['Философия', 'Неофрейдизм', 'Марксизм']
-            },
-            infoTopics: ['Страна', 'Город', 'День рождения', 'Увлечения']
+            }
         }
-}});
+    },
+});
 
 Vue.component('news', {
     template: '#news',
