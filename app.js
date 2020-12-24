@@ -7,9 +7,8 @@ Vue.component('user-info', {
                 OnlineStatus: true,
                 Country: "Германия",
                 LiveCity: "Франкфурт",
-                Birthday:'03-23-1900',
-                Hobbies: ['Философия', 'Психоанализ', 'Марксизм', 'Континентальная философия', 'Cоциальная психология',
-                'Cоциальная философия', 'Этика', 'Философия религии']
+                Birthday: '03-23-1900',
+                Hobbies: 'CS GO, анимэ, девочки подружки'
             }
         }
     },
@@ -69,15 +68,14 @@ Vue.component('news', {
             ]
             dateNames = ['год', 'месяц', 'день', 'час', 'минут', 'секунд']
 
-            for(i = 0; i < postDateTokens.length; i++)
-            {
+            for (i = 0; i < postDateTokens.length; i++) {
                 dif = nowDateTokens[i] - postDateTokens[i]
-                if(dif > 0) {
+                if (dif > 0) {
                     datePostfix = dateNames[i]
 
                     switch (i) {
                         case 0:
-                            if(dif % 10 == 1 && dif % 100 != 11) {
+                            if (dif % 10 == 1 && dif % 100 != 11) {
                                 break;
                             }
                             else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
@@ -89,7 +87,7 @@ Vue.component('news', {
                             break;
 
                         case 1:
-                            if(dif % 10 == 1 && dif % 100 != 11) {
+                            if (dif % 10 == 1 && dif % 100 != 11) {
                                 break;
                             }
                             else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
@@ -101,7 +99,7 @@ Vue.component('news', {
                             break;
 
                         case 2:
-                            if(dif % 10 == 1 && dif % 100 != 11) {
+                            if (dif % 10 == 1 && dif % 100 != 11) {
                                 break;
                             }
                             else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
@@ -113,7 +111,7 @@ Vue.component('news', {
                             break;
 
                         case 3:
-                            if(dif % 10 == 1 && dif % 100 != 11) {
+                            if (dif % 10 == 1 && dif % 100 != 11) {
                                 break;
                             }
                             else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
@@ -125,7 +123,7 @@ Vue.component('news', {
                             break;
                         case 4:
                         case 5:
-                            if(dif % 10 == 1 && dif % 100 != 11) {
+                            if (dif % 10 == 1 && dif % 100 != 11) {
                                 datePostfix += 'а';
                             }
                             else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
@@ -392,10 +390,10 @@ Vue.component('bonuses-list', {
         }
     },
     methods: {
-        bonusCorrectEnd: function(index) {
+        bonusCorrectEnd: function (index) {
             end = '';
-            if(!(this.bonusesList[index].BonusCount % 10 == 1))
-                end = (this.bonusesList[index].BonusCount % 10 >= 2 && this.bonusesList[index].BonusCount % 10 <= 4) ? 'а': 'ов';
+            if (!(this.bonusesList[index].BonusCount % 10 == 1))
+                end = (this.bonusesList[index].BonusCount % 10 >= 2 && this.bonusesList[index].BonusCount % 10 <= 4) ? 'а' : 'ов';
             return end;
         }
     },

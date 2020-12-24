@@ -10,20 +10,15 @@
     <!--Styles-->
     <link rel="stylesheet" href="exr.bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <style>
-        body.modal-open {
-            overflow: hidden;
-        }
-    </style>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
 
     <title>layout</title>
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-
         <div class="container-fluid p-0">
-
             <!-- NavBar Header -->
             <nav class="navbar navbar-light navbar-expand bg-gray-100 shadow topbar sticky-top">
                 <div class="container-fluid">
@@ -78,41 +73,41 @@
                         <user-info></user-info>
 
                         <div class="d-flex flex-md-row-reverse">
-                            <div class="container-fluid col-md-8 col-12">
+                            <div class="container-fluid col-12">
                                 <ul class="card mb-4 nav nav-pills d-md-flex flex-md-row flex-column
-                                shadow animated--fade-in" id="nav-tab" role="tablist">
+                                shadow animated--fade-in orange" id="nav-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link px-4 active" id="pills-news-tab" data-toggle="pill"
-                                            href="#pills-news" role="tab" aria-controls="pills-news"
+                                        <a class="nav-link px-4 active font-weight-bold" id="pills-news-tab"
+                                            data-toggle="pill" href="#pills-news" role="tab" aria-controls="pills-news"
                                             aria-selected="true">
                                             Новости
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link px-4" id="pills-friends-tab" data-toggle="pill"
-                                            href="#pills-friends" role="tab" aria-controls="pills-friends"
-                                            aria-selected="false">
+                                        <a class="nav-link px-4 font-weight-bold" id="pills-friends-tab"
+                                            data-toggle="pill" href="#pills-friends" role="tab"
+                                            aria-controls="pills-friends" aria-selected="false">
                                             Друзья
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link px-4" id="pills-subscribers-tab" data-toggle="pill"
-                                            href="#pills-subscribers" role="tab" aria-controls="pills-subscribers"
-                                            aria-selected="false">
+                                        <a class="nav-link px-4 font-weight-bold" id="pills-subscribers-tab"
+                                            data-toggle="pill" href="#pills-subscribers" role="tab"
+                                            aria-controls="pills-subscribers" aria-selected="false">
                                             Подписчики
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link px-4" id="pills-about-tab" data-toggle="pill"
-                                            href="#pills-about" role="tab" aria-controls="pills-about"
-                                            aria-selected="false">
+                                        <a class="nav-link px-4 font-weight-bold" id="pills-about-tab"
+                                            data-toggle="pill" href="#pills-about" role="tab"
+                                            aria-controls="pills-about" aria-selected="false">
                                             Бонусы
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link px-4" id="pills-contacts-tab" data-toggle="pill"
-                                            href="#pills-contacts" role="tab" aria-controls="pills-contact"
-                                            aria-selected="false">
+                                        <a class="nav-link px-4 font-weight-bold" id="pills-contacts-tab"
+                                            data-toggle="pill" href="#pills-contacts" role="tab"
+                                            aria-controls="pills-contact" aria-selected="false">
                                             Подписки
                                         </a>
                                     </li>
@@ -189,39 +184,62 @@
 
     <!-- Ваш шаблон для vue component -->
     <script type="text/x-template" id="user-info">
-        <div class="container-fluid col-md-8 col-12">
+        <div class="container-fluid col-12">
             <div class="card mb-3 shadow d-flex flex-column flex-md-row">
                     <div class="card-body d-flex flex-row border-right col-9">
-                        <img src="img/2.jpg" class="img-thumbnail rounded-circle z-depth-2 align-self-center mr-5 p-0"
-                        style="height: 160px; width: 160px">
-                        <div class="d-flex flex-column">
-                            <div class="d-flex flex-row justify-content-between">
-                                <h2>{{user.FullName}}</h2>
-                                <p class="text-secondary"><i class="fa fa-circle"
-                                :class="{'text-primary': user.OnlineStatus}"></i>  online</p>
-                            </div>
-                            <div class="d-flex flex-row mb-4" id="info">
-                                <div class="d-flex flex-column mr-5">
-                                    <p>Страна:</p>
-                                    <p>Город:</p>
-                                    <p>День рождения:</p>
-                                    <p>Увлечения:</p>
+                        <div class="container">
+                            <div class="row p-3">
+                              <div class="col-sm-4">
+                                <img class="img-fluid rounded-circle z-depth-2 align-self-center mr-5 p-0"
+                                src="img/2.jpg">
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="row align-items-center mb-3">
+                                    <p class="h1 font-weight-bold mr-5">{{user.FullName}}</p>
+                                    <p class="text-secondary h6">
+                                        <i class="fa fa-circle mr-2" :class="{'text-primary': user.OnlineStatus}"></i>
+                                        online
+                                    </p>
                                 </div>
-
-                                <div class="d-flex flex-column">
-                                    <p>{{user.Country}}</p>
-                                    <p>{{user.LiveCity}}</p>
-                                    <p>{{user.Birthday}}</p>
-                                    <div  class="d-flex flex-row flex-wrap">
-                                        <span v-for="hobby of user.Hobbies" class="m-0 px-1">{{hobby}},</span>
+                                <div class="row mb-3">
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <p>Страна:</p>
+                                        </div>
+                                        <div class="row">
+                                            <p>Город:</p>
+                                        </div>
+                                        <div class="row">
+                                            <p>День рождения:</p>
+                                        </div>
+                                        <div class="row">
+                                            <p>Увлечения:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <p class="font-weight-bold">{{user.Country}}</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="font-weight-bold">{{user.LiveCity}}</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="font-weight-bold">{{user.Birthday}}</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="font-weight-bold">{{user.Hobbies}}</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <a href="#" class="text-primary">Показать подробную информацию</a>
+                                </div>
+                              </div>
                             </div>
-                            <a href="#" class="text-primary">Показать подробную информацию</a>
                         </div>
                     </div>
                     <div class="card-body d-flex flex-column">
-                    <button class="btn text-secondary fa fa-ellipsis-v align-self-end"></button>
+                    <button class="btn text-secondary fa fa-ellipsis-v fa-lg align-self-end"></button>
 
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="border rounded align-self-center">
@@ -242,7 +260,7 @@
                             <img :src="n.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
                                     style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
                             <div class="d-flex flex-column justify-content-center">
-                                <a :href="n.GroupLink" class="text-secondary my-1">
+                                <a :href="n.GroupLink" class="my-1">
                                     {{n.GroupName}}
                                 </a>
                                 <small class="text-muted">{{postOld(index)}} назад</small>
@@ -260,10 +278,10 @@
     </script>
 
     <script type="text/x-template" id="friends">
-        <section class="card container my-4 px-0">
+        <section class="card my-4 px-0">
             <div class="col px-5">
                 <div class="input-group my-4">
-                    <input class="form-control" type="text" placeholder="Поиск" v-model="search">
+                    <input class="form-control" style="border-color: #e36223 !important;" type="text" placeholder="Поиск" v-model="search">
                     <div class="input-group-append btn-group">
                         <button
                             class="btn btn-default btn-primary dropdown-toggle"
@@ -272,103 +290,113 @@
                             aria-expanded="false">
                             Параметры
                         </button>
-                        <form class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <div class="form-group p-2">
-                                    <label for="cities">Город</label>
-                                    <select class="form-control select2"
-                                        name="cities"
-                                        v-model="selectedCity">
-                                        <option class="option2" value="">Любой</option>
-                                        <option v-for="city in cities">
-                                            {{city}}
-                                        </option>
-                                    </select>
+                        <form class="dropdown-menu dropdown-menu-right" style="width: 336px;" aria-labelledby="dropdownMenuButton">
+                                <div class="row">
+                                    <div class="w-100 p-3">
+                                        <label for="cities">Город</label>
+                                        <select class="form-control w-100"
+                                            name="cities"
+                                            v-model="selectedCity">
+                                            <option class="option2" value=""></option>
+                                            <option v-for="city in cities">
+                                                {{city}}
+                                            </option>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <div class="form-group p-2">
-                                    <label>Возраст</label>
-                                    <input type="text"
-                                        class="form-control input-sm mb-1"
-                                        name="min-age"
-                                        placeholder="От" v-model="minAge">
-                                    <input type="text" class="form-control input-sm"
-                                        name="max-age"
-                                        placeholder="До" v-model="maxAge"
-                                        @change="maxAgeChecker">
-                                </div>
-
-
-                                <div class="form-group p-2">
-                                    <label>Пол</label>
-                                    <div class="col-sm-10">
-                                        <div class="form-check">
-                                            <input class="form-check-input"
-                                                type="radio" name="male"
-                                                value="male"
-                                                v-model="selectedGender">
-                                            <label class="form-check-label"
-                                                for="male">
-                                                Мужчина
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input"
-                                                type="radio" name="female"
-                                                value="female"
-                                                v-model="selectedGender">
-                                            <label class="form-check-label"
-                                                for="female">
-                                                Женщина
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input"
-                                                type="radio" name="any"
-                                                value=""
-                                                v-model="selectedGender" selected>
-                                            <label class="form-check-label"
-                                                for="any">
-                                                Любой
-                                            </label>
+                                <div class="row">
+                                    <div class="w-100 p-3">
+                                        <label>Возраст</label>
+                                        <div class="row w-100">
+                                            <input type="text"
+                                            class="col-5 form-control input-sm mb-1"
+                                            name="min-age"
+                                            placeholder="От" v-model="minAge">
+                                            <p class="col" style="align-self: center;"> ___ </p>
+                                            <input type="text" class="col-5 form-control input-sm"
+                                                name="max-age"
+                                                placeholder="До" v-model="maxAge"
+                                                @change="maxAgeChecker">
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    class="col-sm-12">
-                                    <div class="d-flex justify-content-center row">
-                                        <button class="btn btn-primary"
-                                            type="button" name=""
-                                            @click="disableFilter">Сбросить
-                                            настройки</button>
+
+
+                                <div class="row">
+                                    <div class="form-group p-2">
+                                        <label>Пол</label>
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <input class="form-check-input"
+                                                    type="radio" name="male"
+                                                    value="male"
+                                                    v-model="selectedGender">
+                                                <label class="form-check-label"
+                                                    for="male">
+                                                    Мужчина
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input"
+                                                    type="radio" name="female"
+                                                    value="female"
+                                                    v-model="selectedGender">
+                                                <label class="form-check-label"
+                                                    for="female">
+                                                    Женщина
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input"
+                                                    type="radio" name="any"
+                                                    value=""
+                                                    v-model="selectedGender" selected>
+                                                <label class="form-check-label"
+                                                    for="any">
+                                                    Любой
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <!--<div class="row d-flex justify-content-center">
+                                    <button class="btn btn-primary"
+                                        type="button" name=""
+                                        @click="disableFilter">Сбросить
+                                        настройки</button>
+                                </div>-->
                             </form>
                     </div>
                 </div>
 
                 <div class="row">
-                    <p class="text-secondary col-12 col-md-6">Колличество друзей:</p>
-                    <p class="text-secondary col-12 col-md-6">В сети:</p>
+                    <p class="mr-5">Колличество друзей: 112</p>
+                    <p>В сети: 16</p>
                 </div>
             </div>
 
             <div class="list-group border-0">
                 <div class="list-group-item rounded-0 border-left-0 border-right-0 d-flex
                 justify-content-between px-md-5" v-for="friend of filtered">
-                    <div class="d-flex justify-content-between">
-                        <img :src="friend.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
-                                style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
-                        <div class="d-flex flex-column justify-content-center">
-                            <a :href="friend.ProfileLink" class="text-secondary my-1">
-                                {{friend.FirstName}} {{friend.LastName}}
-                                <i class="fa fa-circle" v-bind:class="{'text-primary': friend.OnlineStatus}"
-                                style="font-size: 0.5em"></i>
-                            </a>
-                            <div class="flex-row">
-                                <a href="#" class="text-primary m-2">
+                    <div class="row">
+                        <div class="col">
+                            <img :src="friend.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
+                                    style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
+                        </div>
+                        <div class="col-10">
+                            <div class="row">
+                                <a :href="friend.ProfileLink" class="my-1">
+                                    {{friend.FirstName}} {{friend.LastName}}
+                                    <i class="fa fa-circle ml-2" v-bind:class="{'text-primary': friend.OnlineStatus}"
+                                    style="font-size: 0.5em; align-self: center;"></i>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="text-primary mr-5">
                                     <i class="fa fa-envelope-open-text text-primary"></i> Написать сообщение
                                 </a>
-                                <a href="#" class="text-primary m-2">
+                                <a href="#" class="text-primary">
                                     <i class="fa fa-percentage text-primary"></i> Поделиться бонусами
                                 </a>
                             </div>
@@ -381,10 +409,10 @@
     </script>
 
     <script type="text/x-template" id="subscribers">
-        <section class="card container my-4 px-0">
+        <section class="card my-4 px-0">
             <div class="col px-5">
                 <div class="input-group my-4">
-                    <input class="form-control" type="text" placeholder="Поиск" v-model="search">
+                    <input class="form-control" style="border-color: #e36223 !important;" type="text" placeholder="Поиск" v-model="search">
                     <div class="input-group-append btn-group">
                         <button
                             class="btn btn-default btn-primary dropdown-toggle"
@@ -393,31 +421,40 @@
                             aria-expanded="false">
                             Параметры
                         </button>
-                        <form class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <div class="form-group p-2">
+                        <form class="dropdown-menu dropdown-menu-right" style="width: 336px;" aria-labelledby="dropdownMenuButton">
+                            <div class="row">
+                                <div class="w-100 p-3">
                                     <label for="cities">Город</label>
-                                    <select class="form-control select2"
+                                    <select class="form-control w-100"
+                                        name="cities"
                                         v-model="selectedCity">
-                                        <option class="option2" value="">Любой</option>
+                                        <option class="option2" value=""></option>
                                         <option v-for="city in cities">
                                             {{city}}
                                         </option>
                                     </select>
                                 </div>
+                            </div>
 
-                                <div class="form-group p-2">
+                            <div class="row">
+                                <div class="w-100 p-3">
                                     <label>Возраст</label>
-                                    <input type="text"
-                                        class="form-control input-sm mb-1"
+                                    <div class="row w-100">
+                                        <input type="text"
+                                        class="col-5 form-control input-sm mb-1"
                                         name="min-age"
                                         placeholder="От" v-model="minAge">
-                                    <input type="text" class="form-control input-sm"
-                                        name="max-age"
-                                        placeholder="До" v-model="maxAge"
-                                        @change="maxAgeChecker">
+                                        <p class="col" style="align-self: center;"> ___ </p>
+                                        <input type="text" class="col-5 form-control input-sm"
+                                            name="max-age"
+                                            placeholder="До" v-model="maxAge"
+                                            @change="maxAgeChecker">
+                                    </div>
                                 </div>
+                            </div>
 
 
+                            <div class="row">
                                 <div class="form-group p-2">
                                     <label>Пол</label>
                                     <div class="col-sm-10">
@@ -453,38 +490,40 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    class="col-sm-12">
-                                    <div class="d-flex justify-content-center row">
-                                        <button class="btn btn-primary"
-                                            type="button" name=""
-                                            @click="disableFilter">Сбросить
-                                            настройки</button>
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
+                            <!--<div class="row d-flex justify-content-center">
+                                <button class="btn btn-primary"
+                                    type="button" name=""
+                                    @click="disableFilter">Сбросить
+                                    настройки</button>
+                            </div>-->
+                        </form>
                     </div>
-
-
                 </div>
-                <p class="text-secondary">Колличество подписчиков:</p>
+                <p>Колличество заявок: 666</p>
             </div>
 
             <div class="list-group border-0">
                 <div class="list-group-item rounded-0 border-left-0 border-right-0 d-flex
                 justify-content-between px-md-5" v-for="subscriber of filtered">
-                    <div class="d-flex justify-content-between">
-                        <img :src="subscriber.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
-                                style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
-                        <div class="d-flex flex-column justify-content-center">
-                            <a :href="subscriber.ProfileLink" class="text-secondary my-1">
-                                {{subscriber.FirstName}} {{subscriber.LastName}}
-                                <i class="fa fa-circle" v-bind:class="{'text-primary': subscriber.OnlineStatus}"
-                                style="font-size: 0.5em"></i>
-                            </a>
-                            <a href="#" class="text-primary my-1">
-                                <i class="fa fa-user-plus text-primary"></i> Добавить в друзья
-                            </a>
+                    <div class="row">
+                        <div class="col">
+                            <img :src="subscriber.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
+                                    style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <a :href="subscriber.ProfileLink" class="my-1">
+                                    {{subscriber.FirstName}} {{subscriber.LastName}}
+                                    <i class="fa fa-circle" v-bind:class="{'text-primary': subscriber.OnlineStatus}"
+                                    style="font-size: 0.5em"></i>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="text-primary my-1">
+                                    <i class="fa fa-user-plus text-primary"></i> Добавить в друзья
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <button class="btn text-primary fa fa-ellipsis-v align-self-start"></button>
@@ -494,7 +533,7 @@
     </script>
 
     <script type="text/x-template" id="bonuses">
-        <section class="card container my-4 px-0">
+        <section class="card my-4 px-0">
             <div class="col px-5">
                 <div class="input-group my-4">
                     <input class="form-control" type="text" placeholder="Поиск" v-model="search">
@@ -502,18 +541,25 @@
             </div>
 
             <div class="list-group border-0">
-                <div class="list-group-item rounded-0 border-left-0 border-right-0 d-flex
-                justify-content-between px-md-5 align-items-center" v-for="(bonus, index) of filtered">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img :src="bonus.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
+                <div class="list-group-item rounded-0 border-left-0 border-right-0 px-md-5 align-items-center" v-for="(bonus, index) of filtered">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <img :src="bonus.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
                                 style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
-                        <a :href="bonus.GroupLink" class="text-secondary my-1">
-                            {{bonus.GroupName}}
-                        </a>
+                            <a :href="bonus.GroupLink" class="my-1" style="align-self: flex-start;">
+                                {{bonus.GroupName}}
+                            </a>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <p class="text-primary font-weight-bold" style="text-align: center;"><i class="fa fa-percent"></i> {{bonus.BonusCount}} бонус{{bonusCorrectEnd(index)}}</p>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <button class="btn btn-default btn-primary" style="text-align: center;">Посмотреть бонусы</button>
+                        </div>
+                        <div class="col d-flex flex-row-reverse" style="align-self: flex-start;">
+                            <button class="btn text-primary fa fa-ellipsis-v align-self-start"></button>
+                        </div>
                     </div>
-                    <p class="text-primary"><i class="fa fa-badge-percent"></i> {{bonus.BonusCount}} бонус{{bonusCorrectEnd(index)}}</p>
-                    <button class="btn btn-default btn-primary">Посмотреть бонусы</button>
-                    <button class="btn text-primary fa fa-ellipsis-v align-self-start"></button>
                 </div>
             </div>
         </section>
