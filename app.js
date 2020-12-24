@@ -8,7 +8,8 @@ Vue.component('user-info', {
                 Country: "Германия",
                 LiveCity: "Франкфурт",
                 Birthday:'03-23-1900',
-                Hobbies: ['Философия', 'Неофрейдизм', 'Марксизм']
+                Hobbies: ['Философия', 'Психоанализ', 'Марксизм', 'Континентальная философия', 'Cоциальная психология',
+                'Cоциальная философия', 'Этика', 'Философия религии']
             }
         }
     },
@@ -23,7 +24,7 @@ Vue.component('news', {
                     GroupName: 'CDPR',
                     ImagePath: 'img/cdpr.jpg',
                     GroupLink: '#',
-                    DateOfPosting:(new Date - new Date('12.17.2020')),
+                    DateOfPosting: new Date('12.24.2020 13:45:10'),
                     PostTitle: 'Cyberpunk 2077',
                     PostPreview: 'img/cyberpunk2077.jpg'
                 },
@@ -31,13 +32,117 @@ Vue.component('news', {
                     GroupName: 'CDPR',
                     ImagePath: 'img/cdpr.jpg',
                     GroupLink: '#',
-                    DateOfPosting:(new Date - new Date('12.17.2020')),
+                    DateOfPosting: new Date('12.17.2020'),
+                    PostTitle: 'Cyberpunk 2077',
+                    PostPreview: 'img/cyberpunk2077.jpg'
+                },
+                {
+                    GroupName: 'CDPR',
+                    ImagePath: 'img/cdpr.jpg',
+                    GroupLink: '#',
+                    DateOfPosting: new Date('11.10.1999'),
                     PostTitle: 'Cyberpunk 2077',
                     PostPreview: 'img/cyberpunk2077.jpg'
                 }
             ]
         }
-}});
+    },
+    methods: {
+        postOld(index) {
+            nowDate = new Date()
+            postDateTokens = [
+                this.news[index].DateOfPosting.getFullYear(),
+                this.news[index].DateOfPosting.getMonth(),
+                this.news[index].DateOfPosting.getDate(),
+                this.news[index].DateOfPosting.getHours(),
+                this.news[index].DateOfPosting.getMinutes(),
+                this.news[index].DateOfPosting.getSeconds()
+            ]
+
+            nowDateTokens = [
+                nowDate.getFullYear(),
+                nowDate.getMonth(),
+                nowDate.getDate(),
+                nowDate.getHours(),
+                nowDate.getMinutes(),
+                nowDate.getSeconds(),
+            ]
+            dateNames = ['год', 'месяц', 'день', 'час', 'минут', 'секунд']
+
+            for(i = 0; i < postDateTokens.length; i++)
+            {
+                dif = nowDateTokens[i] - postDateTokens[i]
+                if(dif > 0) {
+                    datePostfix = dateNames[i]
+
+                    switch (i) {
+                        case 0:
+                            if(dif % 10 == 1 && dif % 100 != 11) {
+                                break;
+                            }
+                            else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
+                                datePostfix += 'а'
+                            }
+                            else {
+                                datePostfix = 'лет'
+                            }
+                            break;
+
+                        case 1:
+                            if(dif % 10 == 1 && dif % 100 != 11) {
+                                break;
+                            }
+                            else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
+                                datePostfix += 'а'
+                            }
+                            else {
+                                datePostfix += 'ев'
+                            }
+                            break;
+
+                        case 2:
+                            if(dif % 10 == 1 && dif % 100 != 11) {
+                                break;
+                            }
+                            else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
+                                datePostfix = 'дня'
+                            }
+                            else {
+                                datePostfix = 'дней'
+                            }
+                            break;
+
+                        case 3:
+                            if(dif % 10 == 1 && dif % 100 != 11) {
+                                break;
+                            }
+                            else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
+                                datePostfix += 'а'
+                            }
+                            else {
+                                datePostfix += 'ов'
+                            }
+                            break;
+                        case 4:
+                        case 5:
+                            if(dif % 10 == 1 && dif % 100 != 11) {
+                                datePostfix += 'а';
+                            }
+                            else if ((dif % 10 >= 2 && dif % 10 <= 4) && !(dif % 100 >= 12 && dif % 100 <= 14)) {
+                                datePostfix += 'ы'
+                            }
+                            break;
+                        default:
+
+                    }
+
+                    return dif + ' ' + datePostfix
+                }
+            }
+            return 'Nan';
+        }
+    }
+});
 
 Vue.component('friends-list', {
     template: '#friends',
@@ -285,9 +390,6 @@ Vue.component('bonuses-list', {
             ],
             search: ''
         }
-    },
-    watch:{
-
     },
     methods: {
         bonusCorrectEnd: function(index) {

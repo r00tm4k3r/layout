@@ -82,42 +82,37 @@
                                 <ul class="card mb-4 nav nav-pills d-md-flex flex-md-row flex-column
                                 shadow animated--fade-in" id="nav-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="pills-news-tab" data-toggle="pill"
+                                        <a class="nav-link px-4 active" id="pills-news-tab" data-toggle="pill"
                                             href="#pills-news" role="tab" aria-controls="pills-news"
                                             aria-selected="true">
-                                            <i class="far fa-newspaper"></i>
                                             Новости
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="pills-friends-tab" data-toggle="pill"
+                                        <a class="nav-link px-4" id="pills-friends-tab" data-toggle="pill"
                                             href="#pills-friends" role="tab" aria-controls="pills-friends"
                                             aria-selected="false">
-                                            <i class="far fa-address-card"></i>
                                             Друзья
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="pills-subscribers-tab" data-toggle="pill"
+                                        <a class="nav-link px-4" id="pills-subscribers-tab" data-toggle="pill"
                                             href="#pills-subscribers" role="tab" aria-controls="pills-subscribers"
                                             aria-selected="false">
-                                            <i class="far fa-address-card"></i>
                                             Подписчики
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="pills-about-tab" data-toggle="pill"
+                                        <a class="nav-link px-4" id="pills-about-tab" data-toggle="pill"
                                             href="#pills-about" role="tab" aria-controls="pills-about"
                                             aria-selected="false">
-                                            <i class="far fa-address-card"></i>
                                             Бонусы
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="pills-contacts-tab" data-toggle="pill"
+                                        <a class="nav-link px-4" id="pills-contacts-tab" data-toggle="pill"
                                             href="#pills-contacts" role="tab" aria-controls="pills-contact"
                                             aria-selected="false">
-                                            <i class="far fa-address-book"></i>
                                             Подписки
                                         </a>
                                     </li>
@@ -201,25 +196,31 @@
                         style="height: 160px; width: 160px">
                         <div class="d-flex flex-column">
                             <div class="d-flex flex-row justify-content-between">
-                                <h2 class="text-secondary">{{user.FullName}}</h2>
+                                <h2>{{user.FullName}}</h2>
                                 <p class="text-secondary"><i class="fa fa-circle"
                                 :class="{'text-primary': user.OnlineStatus}"></i>  online</p>
                             </div>
-                            <div class="d-flex flex-column" id="info">
-                                <p class="text-secondary">Страна: {{user.Country}}</p>
-                                <p class="text-secondary">Город: {{user.LiveCity}}</p>
-                                <p class="text-secondary">День рождения: {{user.Birthday}}</p>
-                                <div class="d-flex flex-row text-secondary">
-                                    <p class="pr-1">Увлечения:</p>
-                                    <div  class="list-group d-flex flex-row flex-wrap">
-                                        <p v-for="hobby of user.Hobbies" class="border-0 m-0 p-0 px-1">{{hobby}}</p>
+                            <div class="d-flex flex-row mb-4" id="info">
+                                <div class="d-flex flex-column mr-5">
+                                    <p>Страна:</p>
+                                    <p>Город:</p>
+                                    <p>День рождения:</p>
+                                    <p>Увлечения:</p>
+                                </div>
+
+                                <div class="d-flex flex-column">
+                                    <p>{{user.Country}}</p>
+                                    <p>{{user.LiveCity}}</p>
+                                    <p>{{user.Birthday}}</p>
+                                    <div  class="d-flex flex-row flex-wrap">
+                                        <span v-for="hobby of user.Hobbies" class="m-0 px-1">{{hobby}},</span>
                                     </div>
                                 </div>
                             </div>
                             <a href="#" class="text-primary">Показать подробную информацию</a>
                         </div>
                     </div>
-                <div class="card-body d-flex flex-column">
+                    <div class="card-body d-flex flex-column">
                     <button class="btn text-secondary fa fa-ellipsis-v align-self-end"></button>
 
                     <div class="d-flex justify-content-center align-items-center">
@@ -234,8 +235,7 @@
 
     <script type="text/x-template" id="news">
         <section class="list-group px-0 mb-5">
-            <div class="list-group-item d-flex p-0 mb-2
-            justify-content-between card shadow" v-for="n in news">
+            <div class="list-group-item d-flex p-0 mb-2 justify-content-between card shadow" v-for="(n, index) of news">
                 <div class="card-header" style="background: var(--white)">
                     <div class="d-flex justify-content-between">
                         <div class="d-flex justify-content-between">
@@ -245,7 +245,7 @@
                                 <a :href="n.GroupLink" class="text-secondary my-1">
                                     {{n.GroupName}}
                                 </a>
-                                <small class="text-muted">{{n.DateOfPosting}}</small>
+                                <small class="text-muted">{{postOld(index)}} назад</small>
                             </div>
                         </div>
                         <button class="btn text-secondary fa fa-ellipsis-v align-self-center"></button>
