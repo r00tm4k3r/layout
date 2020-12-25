@@ -410,7 +410,127 @@ Vue.component('bonuses-list', {
     }
 });
 
+Vue.component('submit-list', {
+    template: '#submits',
+    data: function () {
+        return {
+            groupList: [
+                {
+                    GroupName: 'CDPR',
+                    AliasName: 'CD Projekt Red',
+                    GroupLink: '#',
+                    ImagePath: 'img/cdpr.jpg',
+                    SubscribersCount: 123
+                },
+                {
+                    GroupName: 'CDPR',
+                    AliasName: 'Project Red',
+                    GroupLink: '#',
+                    ImagePath: 'img/cdpr.jpg',
+                    SubscribersCount: 10001
+                },
+                {
+                    GroupName: 'CDPR',
+                    AliasName: 'Project Red',
+                    GroupLink: '#',
+                    ImagePath: 'img/cdpr.jpg',
+                    SubscribersCount: 10006
+                }
+            ],
 
+            peopleList: [
+                {
+                    FirstName: 'Zmih',
+                    LastName: 'Sedoy',
+                    Age: 19,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'male',
+                    LiveCity: 'Казань',
+                    ProfileLink: "#",
+                    OnlineStatus: true
+                },
+                {
+                    FirstName: 'Valera',
+                    LastName: 'Znoyniy',
+                    Age: 19,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'male',
+                    LiveCity: 'Казань',
+                    ProfileLink: "#",
+                    OnlineStatus: true
+                },
+                {
+                    FirstName: 'Tomas',
+                    LastName: 'Edison',
+                    Age: 57,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'male',
+                    LiveCity: 'Москва',
+                    ProfileLink: "#",
+                    OnlineStatus: false
+                },
+                {
+                    FirstName: 'Tom',
+                    LastName: 'Hanson',
+                    Age: 28,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'male',
+                    LiveCity: 'Люберцы',
+                    ProfileLink: "#",
+                    OnlineStatus: false
+                },
+                {
+                    FirstName: 'Elisebet',
+                    LastName: 'Hardware',
+                    Age: 30,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'female',
+                    LiveCity: 'Санкт-Петербург',
+                    ProfileLink: "#",
+                    OnlineStatus: false
+                },
+                {
+                    FirstName: 'Layla',
+                    LastName: 'Harison',
+                    Age: 15,
+                    ImagePath: 'img/test.jpg',
+                    Gender: 'female',
+                    LiveCity: 'New-York',
+                    ProfileLink: "#",
+                    OnlineStatus: true
+                }],
+            search: ''
+        }
+    },
+    methods: {
+        submitCorrectEnd: function (index) {
+            end = '';
+            if (!(this.groupList[index].SubscribersCount % 10 == 1))
+                end = (this.groupList[index].SubscribersCount % 10 >= 2 && this.groupList[index].SubscribersCount % 10 <= 4) ? 'а' : 'ов';
+            return end;
+        }
+    },
+    computed: {
+        filteredGroup() {
+            var self = this;
+
+            return this.groupList.filter(function (submit) {
+
+                return submit.GroupName.toLowerCase().indexOf(self.search) > -1 ||
+                    submit.AliasName.toLowerCase().indexOf(self.search) > -1;
+            });
+        },
+        filteredPeople() {
+            var self = this;
+
+            return this.peopleList.filter(function (user) {
+
+                return user.FirstName.toLowerCase().indexOf(self.search) > -1 ||
+                    user.LastName.toLowerCase().indexOf(self.search) > -1;
+            });
+        }
+    }
+});
 
 
 
