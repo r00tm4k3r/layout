@@ -65,9 +65,9 @@
                 </nav>
                 <!--End Sidebar Main Nav-->
 
-                <div class="align-content-end pt-4" style="overflow: auto;width: -webkit-fill-available;">
+                <div class="align-content-end pt-4" style="width:100%">
                     <!--div Main-->
-                    <div id="content" class="mx-3">
+                    <div id="content">
                         <!-- Ваш код должен находится здесь -->
 
                         <user-info></user-info>
@@ -98,16 +98,16 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link px-4 font-weight-bold" id="pills-bonuses-tab"
-                                            data-toggle="pill" href="#pills-bonuses" role="tab"
-                                            aria-controls="pills-bonuses" aria-selected="false">
+                                        <a class="nav-link px-4 font-weight-bold" id="pills-about-tab"
+                                            data-toggle="pill" href="#pills-about" role="tab"
+                                            aria-controls="pills-about" aria-selected="false">
                                             Бонусы
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link px-4 font-weight-bold" id="pills-submits-tab"
-                                            data-toggle="pill" href="#pills-submits" role="tab"
-                                            aria-controls="pills-submits" aria-selected="false">
+                                        <a class="nav-link px-4 font-weight-bold" id="pills-contacts-tab"
+                                            data-toggle="pill" href="#pills-contacts" role="tab"
+                                            aria-controls="pills-contact" aria-selected="false">
                                             Подписки
                                         </a>
                                     </li>
@@ -130,14 +130,15 @@
                                         <subscribers-list></subscribers-list>
                                     </div>
 
-                                    <div class="tab-pane fade" id="pills-bonuses" role="tabpanel"
-                                        aria-labelledby="pills-bonuses-tab">
+                                    <div class="tab-pane fade" id="pills-about" role="tabpanel"
+                                        aria-labelledby="pills-about-tab">
                                         <bonuses-list></bonuses-list>
                                     </div>
 
-                                    <div class="tab-pane fade" id="pills-submits" role="tabpanel"
-                                        aria-labelledby="pills-submits-tab">
-                                        <submit-list></submit-list>
+                                    <div class="tab-pane fade" id="pills-contacts" role="tabpanel"
+                                        aria-labelledby="pills-contacts-tab">
+                                        <div class="card shadow">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -172,6 +173,7 @@
             </div>
             <!--End Main Content-->
         </div>
+
     </div>
 
     <!--Libraries-->
@@ -182,26 +184,24 @@
 
     <!-- Ваш шаблон для vue component -->
     <script type="text/x-template" id="user-info">
-        <div class="container-fluid mb-3">
-            <div class="row">
-                <div class="col-9">
-                    <div class="card card-body border-right">
-                        <div class="row p-3">
-                            <div class="col-4">
+        <div class="container-fluid col-12">
+            <div class="card mb-3 shadow d-flex flex-column flex-md-row">
+                    <div class="card-body d-flex flex-row border-right col-9">
+                        <div class="container">
+                            <div class="row p-3">
+                              <div class="col-sm-4">
                                 <img class="img-fluid rounded-circle z-depth-2 align-self-center mr-5 p-0"
                                 src="img/2.jpg">
-                            </div>
-                            <div class="col-8">
+                              </div>
+                              <div class="col-sm-8">
                                 <div class="row align-items-center mb-3">
-                                    <p class="h1 font-weight-bold mr-5" style="font-size:3vw">{{user.FullName}}
-                                        
-                                    </p>
-                                    <p class="text-secondary h6" style="font-size:1vw">
+                                    <p class="h1 font-weight-bold mr-5">{{user.FullName}}</p>
+                                    <p class="text-secondary h6">
                                         <i class="fa fa-circle mr-2" :class="{'text-primary': user.OnlineStatus}"></i>
                                         online
                                     </p>
                                 </div>
-                                <div class="row mb-3" style="font-size:1vw">
+                                <div class="row mb-3">
                                     <div class="col-sm-4">
                                         <div class="row">
                                             <p>Страна:</p>
@@ -231,20 +231,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="font-size:1vw">
+                                <div class="row">
                                     <a href="#" class="text-primary">Показать подробную информацию</a>
                                 </div>
+                              </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card card-body h-100" style="font-size:1vw">
-                        <button class="btn text-secondary fa fa-ellipsis-v fa-lg align-self-end"></button>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <div class="border rounded align-self-center">
-                                My QR
-                            </div>
+                    <div class="card-body d-flex flex-column">
+                    <button class="btn text-secondary fa fa-ellipsis-v fa-lg align-self-end"></button>
+
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="border rounded align-self-center">
+                            My QR
                         </div>
                     </div>
                 </div>
@@ -563,97 +562,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </script>
-
-    <script type="text/x-template" id="submits">
-        <section class="card my-4 px-0">
-            <div class="col px-5">
-                <div class="input-group my-4">
-                    <input class="form-control" style="border-color: #e36223 !important;" type="text"
-                    placeholder="Поиск" v-model="search">
-                </div>
-            </div>
-
-            <div class="container-fluid col-12 p-0">
-                <ul class="mb-4 px-4 nav nav-pills d-md-flex flex-md-row flex-column orange"
-                id="nav-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link px-4 active font-weight-bold" id="pills-groups-tab"
-                            data-toggle="pill" href="#pills-groups" role="tab" aria-controls="pills-groups"
-                            aria-selected="true">
-                            Организации
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-4 font-weight-bold" id="pills-people-tab"
-                            data-toggle="pill" href="#pills-people" role="tab"
-                            aria-controls="pills-people" aria-selected="false">
-                            Люди
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-groups" role="tabpanel"
-                        aria-labelledby="pills-groups-tab">
-                        <div class="list-group border-0">
-                            <div class="list-group-item rounded-0 border-left-0 border-right-0 d-flex
-                            justify-content-between px-md-5" v-for="(submitGroup, index) of filteredGroup">
-                                <div class="row">
-                                    <div class="col">
-                                        <img :src="submitGroup.ImagePath" class="img-thumbnail
-                                        rounded-circle z-depth-2 mr-5"
-                                        style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="row">
-                                            <a :href="submitGroup.GroupLink" class="my-1">
-                                                {{submitGroup.GroupName}}
-                                            </a>
-                                        </div>
-                                        <div class="row">
-                                            <span href="#" class="text-secondary my-1">
-                                                {{submitGroup.SubscribersCount}} подписчик{{submitCorrectEnd(index)}}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="btn text-primary fa fa-ellipsis-v align-self-start"></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="pills-people" role="tabpanel"
-                        aria-labelledby="pills-people-tab">
-                        <div class="list-group border-0">
-                            <div class="list-group-item rounded-0 border-left-0 border-right-0 d-flex
-                            justify-content-between px-md-5" v-for="subscriber of filteredPeople">
-                                <div class="row">
-                                    <div class="col">
-                                        <img :src="subscriber.ImagePath" class="img-thumbnail rounded-circle z-depth-2 mr-5"
-                                                style="height: 80px; width: 80px;" alt="img" data-holder-rendered="true">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="row">
-                                            <a :href="subscriber.ProfileLink" class="my-1">
-                                                {{subscriber.FirstName}} {{subscriber.LastName}}
-                                                <i class="fa fa-circle" v-bind:class="{'text-primary': subscriber.OnlineStatus}"
-                                                style="font-size: 0.5em"></i>
-                                            </a>
-                                        </div>
-                                        <div class="row">
-                                            <a href="#" class="text-primary my-1">
-                                                <i class="fa fa-user-minus text-primary"></i> Отменить подписку
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="btn text-primary fa fa-ellipsis-v align-self-start"></button>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-
         </section>
     </script>
 
