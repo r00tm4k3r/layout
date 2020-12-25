@@ -1,32 +1,47 @@
-font
-{
-    color: #1000f7;
+body.modal-open {
+    overflow: hidden;
 }
 
-li
-{
-    text-decoration: none;
-    list-style-type: none;
-}
-ul
-{
-    display: none;
-    text-decoration: none;
-    list-style-type: none;
-}
-li:hover ul
-{
-    display: block;
-    text-decoration: none;
-    list-style-type: none;
+body,
+a {
+    font-family: 'Nunito';
+    font-size: 22px;
+    color: black;
 }
 
-img
-{
-    border-radius: 50%;
-    max-width: 50px;
-    max-height: 50px;
-    object-fit: cover;
-    border: 1px solid #1000f7;
-    margin-right: 10px;
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.orange a,
+.orange {
+    background-color: white;
+    color: black;
+}
+
+.orange .active a,
+.orange .active a:hover {
+    background-color: white;
+    color: #e36223;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: white;
+    color: #e36223;
+}
+
+a.text-primary:focus,
+a.text-primary:hover {
+    color: #e36223 !important;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.dropdown-menu {
+    color: black;
 }
