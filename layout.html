@@ -65,9 +65,9 @@
                 </nav>
                 <!--End Sidebar Main Nav-->
 
-                <div class="align-content-end pt-4" style="width:100%">
+                <div class="align-content-end pt-4" style="overflow: auto;width: -webkit-fill-available;">
                     <!--div Main-->
-                    <div id="content">
+                    <div id="content" class="mx-3">
                         <!-- Ваш код должен находится здесь -->
 
                         <user-info></user-info>
@@ -182,24 +182,26 @@
 
     <!-- Ваш шаблон для vue component -->
     <script type="text/x-template" id="user-info">
-        <div class="container-fluid col-12">
-            <div class="card mb-3 shadow d-flex flex-column flex-md-row">
-                    <div class="card-body d-flex flex-row border-right col-9">
-                        <div class="container">
-                            <div class="row p-3">
-                              <div class="col-sm-4">
+        <div class="container-fluid mb-3">
+            <div class="row">
+                <div class="col-9">
+                    <div class="card card-body border-right">
+                        <div class="row p-3">
+                            <div class="col-4">
                                 <img class="img-fluid rounded-circle z-depth-2 align-self-center mr-5 p-0"
                                 src="img/2.jpg">
-                              </div>
-                              <div class="col-sm-8">
+                            </div>
+                            <div class="col-8">
                                 <div class="row align-items-center mb-3">
-                                    <p class="h1 font-weight-bold mr-5">{{user.FullName}}</p>
-                                    <p class="text-secondary h6">
+                                    <p class="h1 font-weight-bold mr-5" style="font-size:3vw">{{user.FullName}}
+                                        
+                                    </p>
+                                    <p class="text-secondary h6" style="font-size:1vw">
                                         <i class="fa fa-circle mr-2" :class="{'text-primary': user.OnlineStatus}"></i>
                                         online
                                     </p>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="row mb-3" style="font-size:1vw">
                                     <div class="col-sm-4">
                                         <div class="row">
                                             <p>Страна:</p>
@@ -229,19 +231,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" style="font-size:1vw">
                                     <a href="#" class="text-primary">Показать подробную информацию</a>
                                 </div>
-                              </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body d-flex flex-column">
-                    <button class="btn text-secondary fa fa-ellipsis-v fa-lg align-self-end"></button>
-
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="border rounded align-self-center">
-                            My QR
+                </div>
+                <div class="col">
+                    <div class="card card-body h-100" style="font-size:1vw">
+                        <button class="btn text-secondary fa fa-ellipsis-v fa-lg align-self-end"></button>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="border rounded align-self-center">
+                                My QR
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -609,7 +612,7 @@
                                             </a>
                                         </div>
                                         <div class="row">
-                                            <span href="#" class="text-primary my-1">
+                                            <span href="#" class="text-secondary my-1">
                                                 {{submitGroup.SubscribersCount}} подписчик{{submitCorrectEnd(index)}}
                                             </span>
                                         </div>
